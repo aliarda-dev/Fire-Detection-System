@@ -1,43 +1,52 @@
-# 🔥 Smart Fire Detection System
+🔥 Smart Fire Detection System
 
-Bu proje, Akdeniz Üniversitesi Elektrik-Elektronik Mühendisliği bünyesindeki gömülü sistemler çalışmalarıma temel teşkil eden, Sensor Fusion (Sensör Füzyonu) tabanlı akıllı yangın algılama teknolojilerinin bir prototipidir. Çalışma kapsamında, ortamdaki sıcaklık ve gaz verilerinin eş zamanlı işlenerek sistemin tepki süresinin ve çalışma kararlılığının optimize edilmesi amaçlanmıştır.
+Bu proje, sıcaklık ve gaz sensörlerinden alınan verileri birlikte değerlendirerek yangın riskini tespit eden basit bir gömülü sistem prototipidir.
 
----
+🛠️ Donanım
 
-### 🛠️ Sistem Mimarisi ve Donanım Bileşenleri
+* Arduino Uno
+* DHT11 (sıcaklık sensörü)
+* MQ-2 (gaz/duman sensörü)
+* Buzzer
+* Kırmızı LED
 
-- Mikrokontrolcü: Arduino Uno
-- Algılama Birimi: DHT11 (Sıcaklık/Nem Sensörü), MQ-2 (Gaz/Duman Sensörü)
-- İkaz Birimi: Aktif Buzzer, Kırmızı LED
-- Yazılım Mimarisi: C Programlama, Low-level Hardware Access
+⚙️ Nasıl Çalışır?
 
----
+* DHT11 ile sıcaklık, MQ-2 ile gaz yoğunluğu okunur
+* Sensör verileri belirlenen eşik değerlerle karşılaştırılır
 
-### ⚙️ Teknik Çalışma Prensibi
+Sistem iki farklı durumda çalışır:
 
-Sistem, güvenlik kritik (safety-critical) bir yaklaşımla, verilerin çapraz kontrolü üzerine kurulu şu mantıkla çalışır:
+**1. Gaz Sızıntısı (Uyarı Modu)**
 
-- Veri Füzyonu (Data Fusion): DHT11 üzerinden sıcaklık, MQ-2 üzerinden ise gaz yoğunluğu verileri anlık olarak toplanarak dijital ortamda işlenir.
-- Kademeli İkaz Mekanizması: Sistem, çevresel verileri analiz ederek durumu iki ayrı seviyede sınıflandırır:
-    - Gaz Sızıntısı (Uyarı Modu): Sadece gaz yoğunluğu eşik değerin üzerine çıktığında, sistem sadece görsel uyarı (LED) vererek sızıntıya karşı ikazda bulunur.
-    - Yangın (Alarm Modu): Sıcaklık ve gaz değerlerinin eş zamanlı olarak eşik değerleri aşması durumunda sistem yangını teyit eder; sesli (Buzzer) ve görsel (LED) alarm mekanizmasını devreye sokar.
-- Hata Ayıklama & Loglama: Seri haberleşme protokolü (UART) üzerinden anlık durum raporu sunularak sistemin çevresel verileri izlenir.
+* Sadece gaz değeri threshold'u aşarsa
+* LED yakılır (sessiz uyarı)
 
----
+**2. Yangın (Alarm Modu)**
 
-### 📖 Mühendislik Kazanımları ve Analiz
+* Hem sıcaklık hem gaz değeri eşik üstündeyse
 
-- Sensör Füzyonu (Sensor Fusion): Çoklu fiziksel parametrelerin (ısı ve gaz) mantıksal birleşimiyle sistem kararlılığının artırılması.
-- Gömülü Yazılım Mimarisi: main() ve init() kullanımıyla kütüphane bağımsız, düşük seviyeli donanım erişimi.
-- Algoritmik Düşünce: Şartlı durum yapıları (if-else) ile hızlı karar destek mekanizması tasarımı.
+* LED + buzzer aktif olur
 
----
+* Sensör verileri UART (Serial) üzerinden anlık olarak izlenebilir
 
-### 💡 Gelecek Vizyonu (Scalability)
+📖 Teknik Notlar
 
-Bu proje, akıllı bina otomasyonu sistemlerinde yangın güvenliğinin temelini simüle etmektedir. İleri aşamada sistemin Wi-Fi modülü (ESP8266) ile entegre edilerek, yangın anında bulut üzerinden mobil bildirim göndermesi ve otomatik yangın söndürme rölelerini tetiklemesi hedeflenmektedir.
+* Basit bir sensor fusion mantığı kullanıldı (AND koşulu)
+* Karar mekanizması if-else yapısı ile kuruldu
+* Sistem deterministik ve hızlı tepki verecek şekilde tasarlandı
 
----
+⚠️ Limitasyonlar
 
-### 🎥 Proje Demo
+* Sensörler kalibre edilmediği için ölçümler hassas değildir
+* Sabit threshold kullanıldığı için ortam koşullarına adaptif değildir
 
+💡 Geliştirme Fikirleri
+
+* Adaptive threshold
+* Sensör kalibrasyonu
+* ESP8266 ile uzaktan bildirim (IoT entegrasyonu)
+* Röle ile otomatik müdahale sistemi
+
+🎥 Proje Demo
+Projenin çalışma videosunu aşağıdan izleyebilirsiniz.
