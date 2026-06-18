@@ -49,4 +49,5 @@ Sistem iki farklı durumda çalışır:
 * Röle ile otomatik müdahale sistemi
 
 🎥 Proje Demo
+
 Projenin çalışma videosunu aşağıdan izleyebilirsiniz.
