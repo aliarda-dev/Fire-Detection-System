@@ -51,3 +51,8 @@ Sistem iki farklı durumda çalışır:
 🎥 Proje Demo
 
 Projenin çalışma videosunu aşağıdan izleyebilirsiniz.
+
+
+
+https://github.com/user-attachments/assets/633bbb7a-b0dc-49af-93b6-7b49733193ba
+
