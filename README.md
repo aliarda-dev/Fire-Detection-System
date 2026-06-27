@@ -49,6 +49,7 @@ Sistem iki farklı durumda çalışır:
 * Röle ile otomatik müdahale sistemi
 
 ***Not*** 
+
 Projenin pil kaynaklı,switch kullanılarak yapılacak halinin pcb tasarımı ve gerekli gerber dosyaları yüklendi.
 
 🎥 Proje Demo
