@@ -48,11 +48,20 @@ Sistem iki farklı durumda çalışır:
 * ESP8266 ile uzaktan bildirim (IoT entegrasyonu)
 * Röle ile otomatik müdahale sistemi
 
+***Not*** 
+Projenin pil kaynaklı,switch kullanılarak yapılacak halinin pcb tasarımı ve gerekli gerber dosyaları yüklendi.
+
 🎥 Proje Demo
 
 Projenin çalışma videosunu aşağıdan izleyebilirsiniz.
 
 
 
+
 https://github.com/user-attachments/assets/633bbb7a-b0dc-49af-93b6-7b49733193ba
+
+📷 Proje PCB Medyası
+
+<img width="841" height="812" alt="fired3" src="https://github.com/user-attachments/assets/76c0dcf8-966e-42c7-b685-dc5f74f07f63" />
+
 
